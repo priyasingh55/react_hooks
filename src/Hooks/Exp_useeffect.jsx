@@ -1,11 +1,15 @@
 import React,{use,useState, useEffect} from "react";
+import { preinit } from "react-dom";
 
 export default function Resource(){
   const[resourceType, setResourceType]=useState("posts");
-  console.log("render")
+  const [items, setItems]= useState([])
+  
 // this array resourcetype will be changed when it is render
   useEffect(()=>{
-    console.log("resource type changed")
+    fetch(`https://jsonplaceholder.typicode.com/${resourceType} `)
+      .then(response => response.json())
+      .then(json => setItems(json))
   },[resourceType])
 
 
@@ -21,6 +25,10 @@ return(
   <button onClick={()=>setResourceType("comments")}>Comments</button>
 
   <h1>{resourceType}</h1>
+  {items.map(item =>{
+    return <pre>{JSON.stringify(item)}</pre>
+  }
+    )}
   </>
 )
 }
