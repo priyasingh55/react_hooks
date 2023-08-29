@@ -1,13 +1,13 @@
 import React,{use, useState} from 'react';
 
 
-function countInitial(){
-  console.log("run function")
-  return 5
+// function countInitial(){
+//   console.log("run function")
+//   return 5
 
-}
+// }
  function Count(){
-// const [count,setCount]=use(5);
+const [count,setCount]=useState(5);
 // ===============or=========
   // const [count, setCount]=useState(()=>{
   //   console.log("run function");
@@ -18,13 +18,13 @@ function countInitial(){
   // const [count ,setCount]= useState(countInitial())
 
   // it run single time
-  const [count, setCount]= useState(()=>countInitial())
+  // const [count, setCount]= useState(()=>countInitial())
 
 
 
   function decrementCount(){
-    setCount(count-1)
-    // setCount(prevCount => prevCount-1)
+    // setCount(count-1)
+    setCount(prevCount => prevCount-1)
     // setCount(prevCount => prevCount-1)
   }
   function incrementCount(){
@@ -39,8 +39,11 @@ return(
 
 <>
 <button onClick={decrementCount}>-</button>
-<span>{count}</span>
+<span> &nbsp;{count}&nbsp; </span>
 <button onClick={incrementCount}>+</button>
+<button onClick={() =>{
+  setCount(count*0)
+}}>Reset</button>
 </>
 )
 }
