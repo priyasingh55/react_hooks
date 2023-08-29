@@ -4,12 +4,14 @@ import React,{useState} from 'react';
   const [count, setCount]=useState(5)
 
   function decrementCount(){
-    setCount(count-1)
-    // setCount(prevCount => prevCount-1)
+    // setCount(count-1)
+    setCount(prevCount => prevCount-1)
+    setCount(prevCount => prevCount-1)
   }
   function incrementCount(){
-    setCount(count+1)
-    // setCount(prevCount => prevCount+1)
+    // setCount(count+1)
+    setCount(prevCount => prevCount+1)
+    setCount(prevCount => prevCount+1)
   }
 
 
