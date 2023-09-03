@@ -53,6 +53,7 @@ import React,{use, useEffect, useState} from 'react';
 export default function Count(){
 
   const [number, setNumber]= useState(1);
+  const [flag, setFlag] =useState(0)
   
 
   useEffect(()=>{
@@ -60,11 +61,15 @@ export default function Count(){
   },[])
   useEffect(()=>{
     console.log("update only for number")
+    return ()=>{
+      console.log("unmount")
+
+    }
   },[number])
 
 
   useEffect(()=>{
-    console.log("update for all")
+    // console.log("update for all")
   })
 
   return(
@@ -75,7 +80,8 @@ export default function Count(){
 
     })}>+</button>
     {number}
-    <button onClick={()=>setNumber(number-1)}>-</button>
+    <button onClick={()=>setNumber(number-1)}>-</button> &nbsp;
+    <button onClick={()=>setFlag(flag+1)}>{flag}</button>
     </>
   )
 
