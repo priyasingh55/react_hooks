@@ -52,19 +52,31 @@ import React,{use, useEffect, useState} from 'react';
 // another way
 export default function Count(){
 
-  const [count , setCount]= useState(0)
+  const [number, setNumber]= useState(1);
+  
 
   useEffect(()=>{
-    console.log("PRIYA")
-
+    console.log("mount")
   },[])
-  console.log("vishal")
+  useEffect(()=>{
+    console.log("update only for number")
+  },[number])
+
+
+  useEffect(()=>{
+    console.log("update for all")
+  })
 
   return(
+    
     <>
-    <button onClick={()=> setCount(count+1)}>+</button>
-    <h1>{count}</h1>
-    <button onClick={()=>setCount(count-1)}>-</button>
+    <button onClick={()=>setNumber((currVal)=>{
+      return currVal+1
+
+    })}>+</button>
+    {number}
+    <button onClick={()=>setNumber(number-1)}>-</button>
     </>
   )
+
 }
