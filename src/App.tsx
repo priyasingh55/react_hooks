@@ -10,9 +10,9 @@ export default function App() {
     <div>
       
       {/* <Exp_useState /> */}
-      {/* <Count /> */}
+      <Count />
       {/* <Resource /> */}
-      <EXp_usestatememo />
+      {/* <EXp_usestatememo /> */}
       
     </div>
   );
