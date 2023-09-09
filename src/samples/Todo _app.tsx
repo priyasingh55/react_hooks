@@ -20,7 +20,7 @@ export default function Todo_app(){
       &nbsp;
       {lastname}
       &nbsp;
-      {list}
+      {<ol>{list.map(element=><li>{element}</li>)}</ol>}
       
     </div>
   )
