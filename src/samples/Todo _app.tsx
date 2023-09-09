@@ -8,7 +8,7 @@ export default function Todo_app(){
   function updateList(){
     setLastname(name)
     setName("")
-    setList([name])
+    setList([name,...list])
    }
 
   return(
