@@ -2,52 +2,44 @@ import React, { useState } from "react";
 
 
 export default function Todo_app(){
-  const [name,setName]=useState("Apple1")
-  const [text,setText]=useState(["PRIYA","AMRITA" ,"PIYUSH"])
+  const [name,setName]=useState("")
+  
   const [list,setList]=useState(["hello","hiii","nope"])
   
   
-  const [lastname,setLastname]=useState('empty')
+  
   function updateList(){
-    setLastname(name)
+   
     setName("")
-    setList([name,...list])
+    if(setList([name,...list])){
+      name !==""
+    }
    }
    function deleteFromList(element){
+      const elem=list.filter((e)=>{
+       return e!==element
+     })
+     setList(elem)
     
-    const newList=list.filter((e)=>{
-      
-      return e !==element
-    })
-    console.log(newList)
-    setList([newList])
-    
-
    }
-
   const createLIst = (element)=>{
     return (<li>{element} <button onClick={()=>deleteFromList(element)}>Delete</button></li>)
   }
-  function emptyArray(){
-   const arr= []
-   console.log(arr)
-   
 
-
-  }
-  // console.log(emptyArray())
+  
+  
 
   
 
   return(
     <div>
-      <button onClick={()=>emptyArray()}>{text}</button>
+     
       <input type="text" value={name} onInput={e=>setName(e.target.value)}/>
       <button onClick={updateList}> +</button>
     
       {name}
       &nbsp;
-      {lastname}
+     
       &nbsp;
       {<ol>{list.map (createLIst)
        
@@ -65,3 +57,20 @@ export default function Todo_app(){
 //    return currval!==3
 // });
 // console.log(newArr)
+
+let i=0;
+let k=0;
+for(let j=0; j<5; j++){
+  k=k+1
+ if(i<2){
+  i=i+1
+  
+ 
+  
+
+ }
+ 
+
+
+}
+console.log(i,k)
